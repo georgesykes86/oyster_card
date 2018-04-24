@@ -11,5 +11,10 @@ describe Station, :station do
     it 'initializes with a zone' do
       expect(station.zone).to eq 1
     end
+    context 'when an unknown name is given' do
+      it 'raises an error with unknown name' do
+        expect { Station.new('Oxford') }.to raise_error('Station not found')
+      end
+    end
   end
 end
